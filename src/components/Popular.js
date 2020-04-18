@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
 
-
-
 import {
     Card, CardImg, CardBody,
     CardTitle, CardSubtitle, Jumbotron, Container
@@ -12,7 +10,6 @@ import {
 import {Link} from 'react-router-dom'
 
 export default class Popular extends Component {
-    // console.log(process.env.REACT_APP_API_KEY)
 
     constructor() {
         super();
@@ -37,8 +34,6 @@ export default class Popular extends Component {
                 console.log('error in popular film call' + error);
             })
     }
-
-
 
     render() {
 
@@ -79,13 +74,9 @@ export default class Popular extends Component {
             return (
                 <div className="container text-center pt-5"><h2>Something went wrong! Sorry!</h2></div>
             )
-        }
-        
-     
-
-       
+        }       
     }
-    }
+}
 
 const MovieWrapper = styled.div`
     
