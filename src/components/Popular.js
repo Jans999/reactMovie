@@ -11,8 +11,8 @@ import {Link} from 'react-router-dom'
 
 export default class Popular extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             popularFilms: [],
             rejected: false
@@ -28,7 +28,7 @@ export default class Popular extends Component {
                 const results = response.data.results;
                 this.setState({popularFilms: results})
             })
-            .catch(function (error) {
+            .catch( (error) => {
                 // handle error
                 this.setState({rejected: true})
                 console.log('error in popular film call' + error);
