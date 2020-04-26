@@ -42,7 +42,7 @@ export default class FilmDetail extends Component{
                 <div className="pb-5">
                     <Jumbotron fluid>
                         <Container className="text-center" fluid>
-                        <h1 className="display-3">{title}</h1>
+                        <h2 className="display-3">{title}</h2>
                         </Container>
                     </Jumbotron>
                     <Movie className="container pb-5">

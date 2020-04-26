@@ -6,7 +6,7 @@ const Home = () => {
     <div className="content">
       <Jumbotron fluid>
         <Container className="text-center" fluid>
-          <h1 className="display-3">Welcome!</h1>
+          <h2 className="display-3">Welcome!</h2>
           <p className="lead">This is an IMDB fetch and router app built in React</p>
         </Container>
       </Jumbotron>

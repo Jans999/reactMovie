@@ -10,6 +10,8 @@ import Popular from './components/Popular'
 import FilmDetail from './components/FilmDetail'
 import Home from './components/Home'
 import Footer from './components/Footer';
+import Genre from './components/Genres'
+import GenreFilmList from './components/GenreFilmList';
 
 class App extends Component {
 
@@ -22,8 +24,9 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/popular" component={Popular} />
-          {/* <Route path="/sunshine" component={FilmDetail} /> */}
+          <Route exact path="/genres" component={Genre} />
           <Route path="/popular/:id" component={FilmDetail} />
+          <Route path="/genres/:genreId/:genreName" component={GenreFilmList} />
     
         </Switch>
         <Footer />
