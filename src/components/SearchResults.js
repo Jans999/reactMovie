@@ -83,7 +83,7 @@ export default class SearchResults extends Component {
             <h1 className="text-center">Something went wrong, please try again later</h1>
             </div>
         )}
-        if (this.state.searchResults.length == 0) {
+        if (this.state.searchResults.length === 0) {
             return (
                 <div>
                 <Jumbotron fluid>
