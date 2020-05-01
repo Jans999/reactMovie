@@ -16,7 +16,6 @@ import GenreFilmList from './components/GenreFilmList';
 import SearchResults from './components/SearchResults'
 
 // Bridging tasks
-// New features add search bar
 // Change favicon, title readme etc
 // Footer
 
