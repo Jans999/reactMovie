@@ -26,7 +26,6 @@ export default class FilmDetail extends Component{
         .then( (response) => {
             // handle success
             response = response.data
-            console.log(response)
             this.setState({movieData: response, loading: false})
         })
         .catch( (error) => {

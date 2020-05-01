@@ -28,7 +28,6 @@ export default class Genres extends Component {
             .then( (response) => {
                 // handle success
                 const results = response.data.genres;
-                console.log(results)
                 this.setState({genres: results, loading: false})
             })
             .catch( (error) => {
@@ -42,7 +41,7 @@ export default class Genres extends Component {
         const genres = this.state.genres.map( (genre) => {
             return (
 
-            <Link class="col-lg-3 text-center" key={genre.id} to={`/genres/${genre.id}/${genre.name}`}>
+            <Link className="col-lg-3 text-center" key={genre.id} to={`/genres/${genre.id}/${genre.name}`}>
 
                 <Card className="col-lg-3 card-wrapper text-center" id="genre" key={genre.id}>
                     <CardBody className="flex-row">
