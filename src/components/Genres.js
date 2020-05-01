@@ -8,6 +8,7 @@ import {
   } from 'reactstrap'
 
 import {Link} from 'react-router-dom'
+import Loading from './Loading'
 
 export default class Genres extends Component {
 
@@ -15,7 +16,8 @@ export default class Genres extends Component {
         super(props);
         this.state = {
             genres: [],
-            rejected: false
+            rejected: false,
+            loading: true
         }
     }
 
@@ -27,11 +29,11 @@ export default class Genres extends Component {
                 // handle success
                 const results = response.data.genres;
                 console.log(results)
-                this.setState({genres: results})
+                this.setState({genres: results, loading: false})
             })
             .catch( (error) => {
                 // handle error
-                this.setState({rejected: true})
+                this.setState({rejected: true, loading: false})
                 console.log('error in popular film call' + error);
             })
     }
@@ -52,7 +54,7 @@ export default class Genres extends Component {
 
         })
 
-
+        if (this.state.loading) {return <Loading />}
         if (!this.state.rejected) {
             return (
                 <div>

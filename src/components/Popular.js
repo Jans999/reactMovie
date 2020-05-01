@@ -8,6 +8,7 @@ import {
   } from 'reactstrap'
 
 import {Link} from 'react-router-dom'
+import Loading from './Loading'
 
 export default class Popular extends Component {
 
@@ -15,7 +16,8 @@ export default class Popular extends Component {
         super(props);
         this.state = {
             popularFilms: [],
-            rejected: false
+            rejected: false,
+            loading: true
         }
     }
 
@@ -26,11 +28,11 @@ export default class Popular extends Component {
             .then( (response) => {
                 // handle success
                 const results = response.data.results;
-                this.setState({popularFilms: results})
+                this.setState({popularFilms: results, loading: false})
             })
             .catch( (error) => {
                 // handle error
-                this.setState({rejected: true})
+                this.setState({rejected: true, loading: false})
                 console.log('error in popular film call' + error);
             })
     }
@@ -40,7 +42,7 @@ export default class Popular extends Component {
         const movies = this.state.popularFilms.map( (film) => {
             return (
             <Card className="col-lg-3 card-wrapper text-center" key={film.id}>
-            <Link to={`/popular/${film.id}`}>
+            <Link to={`/film/${film.id}`}>
                 <CardImg id="poster" class="img-fluid" top width="50%" src={`http://image.tmdb.org/t/p/w185//${film.poster_path}`} alt={film.title} />
             </Link>
                 <CardBody>
@@ -65,7 +67,7 @@ export default class Popular extends Component {
             
         
                         <MovieWrapper className="row">
-                            {movies}
+                            {this.state.loading? <Loading /> : movies}
                         </MovieWrapper>
                     </div>
                 </div>

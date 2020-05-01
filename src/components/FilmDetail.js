@@ -6,6 +6,7 @@ import {
   } from 'reactstrap';
 
 import styled from 'styled-components'
+import Loading from './Loading'
 
 export default class FilmDetail extends Component{
 
@@ -13,7 +14,8 @@ export default class FilmDetail extends Component{
         super(props);
         this.state = {
             movieData: [],
-            rejected: false
+            rejected: false,
+            loading: true
         }
     }
 
@@ -25,11 +27,11 @@ export default class FilmDetail extends Component{
             // handle success
             response = response.data
             console.log(response)
-            this.setState({movieData: response})
+            this.setState({movieData: response, loading: false})
         })
-        .catch(function (error) {
+        .catch( (error) => {
             // handle error
-            this.setState({rejected: true})
+            this.setState({rejected: true, loading: false})
             console.log('error in popular film call' + error);
         })
     }
@@ -37,6 +39,7 @@ export default class FilmDetail extends Component{
 
     render() {
         const {title, poster_path, tagline, overview} = this.state.movieData
+        if (this.state.loading) {return <Loading />}
         if (!this.state.rejected) {
             return (
                 <div className="pb-5">

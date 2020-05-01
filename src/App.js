@@ -13,10 +13,15 @@ import Footer from './components/Footer';
 import Genre from './components/Genres'
 import GenreFilmList from './components/GenreFilmList';
 
+// Bridging tasks
+// New features add search bar
+// Change favicon, title readme etc
+// Footer
+
+
 class App extends Component {
 
   render() {
-    // console.log(process.env.REACT_APP_API_KEY)
     return (
       <div className="app">
         <Router>
@@ -25,7 +30,7 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route exact path="/popular" component={Popular} />
           <Route exact path="/genres" component={Genre} />
-          <Route path="/popular/:id" component={FilmDetail} />
+          <Route path="/film/:id" component={FilmDetail} />
           <Route path="/genres/:genreId/:genreName" component={GenreFilmList} />
     
         </Switch>
